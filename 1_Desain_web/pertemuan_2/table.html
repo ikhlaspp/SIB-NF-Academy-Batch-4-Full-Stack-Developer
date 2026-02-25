@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Kuliah - Modern Minimalis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --blue-50:  #eff6ff;
+            --blue-100: #dbeafe;
+            --blue-200: #bfdbfe;
+            --blue-400: #60a5fa;
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --blue-700: #1d4ed8;
+            --blue-900: #1e3a8a;
+            --text-dark: #1e293b;
+            --text-mid:  #475569;
+            --text-light:#94a3b8;
+            --border:    #e2e8f0;
+            --bg:        #f0f7ff;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text-dark);
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ── OUTER CARD ─────────────────────────────────────── */
+        .page-card {
+            width: min(960px, 96vw);
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(37,99,235,.06),
+                        0 20px 40px rgba(37,99,235,.10);
+            overflow: hidden;
+        }
+
+        /* ── TOP BANNER ─────────────────────────────────────── */
+        .banner {
+            background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-400) 100%);
+            padding: 22px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .banner-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: .5px;
+        }
+
+        .banner-title span {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            opacity: .75;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .banner-badge {
+            background: rgba(255,255,255,.18);
+            border: 1px solid rgba(255,255,255,.3);
+            border-radius: 50px;
+            padding: 6px 14px;
+            color: white;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .5px;
+            white-space: nowrap;
+        }
+
+        /* ── INFO CARDS ROW ─────────────────────────────────── */
+        .info-row {
+            display: flex;
+            gap: 12px;
+            padding: 18px 28px;
+            background: var(--blue-50);
+            border-bottom: 1px solid var(--blue-100);
+        }
+
+        .info-card {
+            flex: 1;
+            background: white;
+            border: 1px solid var(--blue-100);
+            border-radius: 10px;
+            padding: 10px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .info-card .label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--blue-500);
+        }
+
+        .info-card .value {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* ── TABLE WRAPPER ──────────────────────────────────── */
+        .table-wrap {
+            padding: 20px 28px 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid var(--blue-100);
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 12.5px;
+        }
+
+        thead th {
+            background: var(--blue-600);
+            color: white;
+            padding: 11px 14px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            border: none;
+            text-align: left;
+        }
+
+        thead th:first-child { border-radius: 0; }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            color: var(--text-dark);
+            vertical-align: middle;
+            transition: background .15s;
+        }
+
+        td:last-child, th:last-child { border-right: none; }
+
+        tbody tr:nth-child(even) td { background-color: #f8fbff; }
+        tbody td:hover { background-color: var(--blue-100) !important; cursor: default; }
+
+        .center-text { text-align: center; }
+
+        .day-column {
+            background-color: var(--blue-50) !important;
+            color: var(--blue-700);
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: .6px;
+            text-transform: uppercase;
+            width: 70px;
+        }
+
+        .time-cell {
+            text-align: center;
+            font-weight: 600;
+            color: var(--blue-600);
+            font-size: 11.5px;
+            white-space: nowrap;
+            width: 110px;
+        }
+
+        .room-cell {
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-mid);
+            background: white !important;
+            white-space: nowrap;
+        }
+
+        /* ── TFOOT ──────────────────────────────────────────── */
+        tfoot td {
+            background: var(--blue-50);
+            color: var(--text-light);
+            text-align: center;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            padding: 11px 14px;
+            border-bottom: none;
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-card">
+
+    <!-- Top Banner -->
+    <div class="banner">
+        <div class="banner-title">
+            <span>Universitas Teknologi XYZ</span>
+            Jadwal Perkuliahan
+        </div>
+        <div class="banner-badge">Semester Genap 2025/2026</div>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="info-row">
+        <div class="info-card">
+            <span class="label">Nama Mahasiswa</span>
+            <span class="value">Rusdi</span>
+        </div>
+        <div class="info-card">
+            <span class="label">Program Studi</span>
+            <span class="value">Teknik Informatika</span>
+        </div>
+        <div class="info-card">
+            <span class="label">Kampus</span>
+            <span class="value">Universitas Teknologi XYZ</span>
+        </div>
+        <div class="info-card">
+            <span class="label">Total SKS</span>
+            <span class="value">24 SKS</span>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Hari</th>
+                    <th>Jam</th>
+                    <th>Mata Kuliah</th>
+                    <th>Dosen</th>
+                    <th>Ruang</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2" class="center-text day-column">Senin</td>
+                    <td class="time-cell">08.00 – 10.00</td>
+                    <td>Kajian Islam</td>
+                    <td>Ust. Anwar Nashidin, Lc.</td>
+                    <td>Ruang Teori</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">10.00 – 12.00</td>
+                    <td>Aplikasi Perkantoran</td>
+                    <td>Drs. MGS Hendri, M.M</td>
+                    <td rowspan="5" class="room-cell">Ruang I</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" class="center-text day-column">Selasa</td>
+                    <td class="time-cell">08.00 – 10.00</td>
+                    <td>Linux Fundamental</td>
+                    <td>Henry Saptono, S.Si, M.Kom</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">10.00 – 12.00</td>
+                    <td>HTML, CSS &amp; JavaScript</td>
+                    <td rowspan="3">Sirojul Munir, S.Si, M.Kom</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" class="center-text day-column">Rabu</td>
+                    <td class="time-cell">08.00 – 10.00</td>
+                    <td>Basis Data</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">10.00 – 12.00</td>
+                    <td>Algoritma dan Pemrograman</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" class="center-text day-column">Kamis</td>
+                    <td class="time-cell">08.00 – 10.00</td>
+                    <td>Kewirausahaan &amp; Pengembangan Diri</td>
+                    <td>Khoirul Umam, S.Pd</td>
+                    <td rowspan="2" class="room-cell">Ruang Teori</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">10.00 – 12.00</td>
+                    <td>Bahasa Inggris</td>
+                    <td>Drs. Mahfudz</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">&#9432;&nbsp; Jadwal dapat berubah sewaktu-waktu</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
