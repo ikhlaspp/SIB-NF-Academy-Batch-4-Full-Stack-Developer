@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: #ffffff;
+    padding: 48px 40px 60px;
+    color: #111111;
+  }
+  .section {
+    max-width: 560px;
+    margin: 0 auto 52px;
+  }
+  .section-label {
+    font-size: 0.6em;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999999;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.7em;
+    font-weight: 600;
+    color: #111111;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .section-divider {
+    width: 32px;
+    height: 2px;
+    background: #111111;
+    margin-bottom: 20px;
+  }
+  .section-text {
+    font-size: 0.86em;
+    font-weight: 300;
+    line-height: 1.95;
+    color: #555555;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+  }
+  .section-text b { font-weight: 500; color: #111111; }
+  .skill-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 4px;
+  }
+  .skill-item {
+    border: 1px solid #e8e8e8;
+    padding: 14px 16px;
+  }
+  .skill-name {
+    font-size: 0.72em;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #111111;
+    margin-bottom: 8px;
+  }
+  .skill-bar-bg {
+    width: 100%;
+    height: 2px;
+    background: #e8e8e8;
+  }
+  .skill-bar-fill {
+    height: 2px;
+    background: #111111;
+  }
+  .skill-pct {
+    font-size: 0.6em;
+    color: #999999;
+    letter-spacing: 1px;
+    margin-top: 5px;
+  }
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .project-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .project-item:first-child { border-top: 1px solid #e8e8e8; }
+  .project-num {
+    font-size: 0.6em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #bbbbbb;
+    padding-top: 3px;
+    flex-shrink: 0;
+    width: 28px;
+  }
+  .project-title {
+    font-size: 0.82em;
+    font-weight: 500;
+    color: #111111;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .project-desc {
+    font-size: 0.76em;
+    font-weight: 300;
+    color: #777777;
+    line-height: 1.7;
+    letter-spacing: 0.2px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .contact-item {
+    padding: 14px 16px;
+    border: 1px solid #e8e8e8;
+  }
+  .contact-type {
+    font-size: 0.58em;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999999;
+    margin-bottom: 5px;
+  }
+  .contact-val {
+    font-size: 0.76em;
+    font-weight: 400;
+    color: #111111;
+    letter-spacing: 0.3px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="section">
+    <p class="section-label">Personal Profile</p>
+    <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.8em;font-weight:600;color:#111;letter-spacing:2px;line-height:1.1;margin-bottom:8px;">Ikhlas Putra</h1>
+    <div class="section-divider"></div>
+    <p class="section-text">
+      Mahasiswa <b>Teknik Informatika</b> di <b>Universitas JKL</b>.
+      Tertarik di bidang <b>Web Design</b>, <b>UI/UX</b>, dan pengembangan aplikasi modern.
+    </p>
+    <p class="section-text">
+      Lahir dan besar di Konoha. Saat ini aktif belajar teknologi web dari HTML dasar
+      hingga framework modern seperti React dan Laravel.
+    </p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;">
+      <span style="font-size:0.65em;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#111;border:1px solid #ddd;padding:6px 14px;">HTML</span>
+      <span style="font-size:0.65em;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#111;border:1px solid #ddd;padding:6px 14px;">CSS</span>
+      <span style="font-size:0.65em;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#111;border:1px solid #ddd;padding:6px 14px;">JavaScript</span>
+      <span style="font-size:0.65em;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#111;border:1px solid #ddd;padding:6px 14px;">UI/UX</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section">
+    <p class="section-label">Tentang</p>
+    <h2 class="section-title">Siapa Saya?</h2>
+    <div class="section-divider"></div>
+    <p class="section-text">
+      Saya adalah seorang mahasiswa yang memiliki ketertarikan besar terhadap dunia digital.
+      Mulai dari desain antarmuka yang bersih hingga logika pemrograman di balik layar,
+      saya percaya bahwa teknologi adalah alat untuk menciptakan sesuatu yang bermakna.
+    </p>
+    <p class="section-text">
+      Di luar kampus, saya sering menghabiskan waktu untuk eksplorasi desain,
+      menonton tutorial, dan mengerjakan proyek kecil sebagai latihan. Saya percaya
+      bahwa <b>konsistensi</b> dan <b>rasa ingin tahu</b> adalah kunci berkembang di bidang ini.
+    </p>
+    <p class="section-text">
+      Hobi saya meliputi fotografi jalanan, membaca artikel teknologi, dan sesekali
+      membuat ilustrasi digital sederhana menggunakan Figma.
+    </p>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <p class="section-label">Kemampuan</p>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-divider"></div>
+    <div class="skill-grid">
+      <div class="skill-item">
+        <div class="skill-name">HTML / CSS</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        <div class="skill-pct">90%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div>
+        <div class="skill-pct">65%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Figma / UI Design</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+        <div class="skill-pct">75%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">PHP / Laravel</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:50%"></div></div>
+        <div class="skill-pct">50%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">React JS</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:40%"></div></div>
+        <div class="skill-pct">40%</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Git / GitHub</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+        <div class="skill-pct">70%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <p class="section-label">Karya</p>
+    <h2 class="section-title">Proyek</h2>
+    <div class="section-divider"></div>
+    <div class="project-list">
+      <div class="project-item">
+        <span class="project-num">01</span>
+        <div class="project-body">
+          <div class="project-title">Portofolio Web — HTML Frameset</div>
+          <div class="project-desc">Website portofolio statis menggunakan HTML Frameset dengan tampilan modern minimalis. Terdiri dari header, navigasi, konten utama, sidebar, dan footer.</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <span class="project-num">02</span>
+        <div class="project-body">
+          <div class="project-title">Landing Page — Kafe Lokal</div>
+          <div class="project-desc">Desain landing page untuk kafe lokal menggunakan HTML dan CSS murni. Fokus pada tipografi, whitespace, dan keterbacaan konten.</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <span class="project-num">03</span>
+        <div class="project-body">
+          <div class="project-title">UI Design — Aplikasi Catatan</div>
+          <div class="project-desc">Desain antarmuka aplikasi catatan berbasis mobile menggunakan Figma. Konsep clean dan minimalis dengan dark mode support.</div>
+        </div>
+      </div>
+      <div class="project-item">
+        <span class="project-num">04</span>
+        <div class="project-body">
+          <div class="project-title">CRUD App — Data Mahasiswa</div>
+          <div class="project-desc">Aplikasi web sederhana untuk manajemen data mahasiswa menggunakan PHP, MySQL, dan Bootstrap. Fitur tambah, edit, hapus, dan cari data.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section">
+    <p class="section-label">Hubungi</p>
+    <h2 class="section-title">Kontak</h2>
+    <div class="section-divider"></div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-type">Email</div>
+        <div class="contact-val">ikhlasputra940@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-type">Instagram</div>
+        <div class="contact-val">@ikhlaspp</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-type">GitHub</div>
+        <div class="contact-val">github.com/ikhlaspp</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-type">LinkedIn</div>
+        <div class="contact-val">linkedin.com/in/ikhlas-putra</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

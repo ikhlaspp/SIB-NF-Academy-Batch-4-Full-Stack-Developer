@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: #ffffff;
+    padding: 36px 40px 60px;
+    color: #111111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .page-label {
+    font-size: 0.62em;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999999;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 780px;
+  }
+  .page-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.2em;
+    font-weight: 600;
+    color: #111111;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    width: 100%;
+    max-width: 780px;
+  }
+  .divider-line {
+    width: 40px;
+    height: 2px;
+    background: #111111;
+    margin-bottom: 28px;
+    align-self: flex-start;
+    margin-left: calc((100% - min(780px, 100%)) / 2);
+  }
+
+  /* --- GRID UTAMA --- */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+    max-width: 780px;
+    margin-bottom: 8px;
+  }
+  .gallery-grid .wide {
+    grid-column: span 2;
+  }
+  .gallery-grid .tall {
+    grid-row: span 2;
+  }
+
+  /* --- CARD --- */
+  .g-card {
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+    cursor: pointer;
+  }
+  .g-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease, filter 0.4s ease;
+    filter: grayscale(15%);
+  }
+  .g-card:hover img {
+    transform: scale(1.06);
+    filter: grayscale(0%);
+  }
+  .g-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0);
+    display: flex;
+    align-items: flex-end;
+    padding: 14px;
+    transition: background 0.35s ease;
+  }
+  .g-card:hover .overlay {
+    background: rgba(0,0,0,0.35);
+  }
+  .g-card .caption {
+    font-size: 0.6em;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .g-card:hover .caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Fixed heights untuk grid */
+  .gallery-grid .g-card { height: 200px; }
+  .gallery-grid .tall    { height: 408px; }
+
+  /* --- ROW KECIL BAWAH --- */
+  .gallery-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    width: 100%;
+    max-width: 780px;
+    margin-bottom: 20px;
+  }
+  .gallery-row .g-card { height: 130px; }
+
+  .footer-note {
+    font-size: 0.62em;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #bbbbbb;
+    width: 100%;
+    max-width: 780px;
+  }
+</style>
+</head>
+<body>
+  <p class="page-label">Koleksi Foto</p>
+  <h2 class="page-title">Gallery</h2>
+  <div class="divider-line"></div>
+
+  <!-- GRID UTAMA 3 kolom -->
+  <div class="gallery-grid">
+
+    <!-- Baris 1: wide + 1 -->
+    <div class="g-card wide">
+      <img src="https://picsum.photos/id/1015/780/200" alt="Nature">
+      <div class="overlay"><span class="caption">Nature &mdash; 01</span></div>
+    </div>
+    <div class="g-card">
+      <img src="https://picsum.photos/id/1018/380/200" alt="Mountain">
+      <div class="overlay"><span class="caption">Mountain &mdash; 02</span></div>
+    </div>
+
+    <!-- Baris 2: 1 + wide -->
+    <div class="g-card">
+      <img src="https://picsum.photos/id/1019/380/200" alt="Forest">
+      <div class="overlay"><span class="caption">Forest &mdash; 03</span></div>
+    </div>
+    <div class="g-card wide">
+      <img src="https://picsum.photos/id/1039/780/200" alt="Landscape">
+      <div class="overlay"><span class="caption">Landscape &mdash; 04</span></div>
+    </div>
+
+    <!-- Baris 3: tall + 2 kolom -->
+    <div class="g-card tall">
+      <img src="https://picsum.photos/id/1043/380/408" alt="Waterfall">
+      <div class="overlay"><span class="caption">Waterfall &mdash; 05</span></div>
+    </div>
+    <div class="g-card">
+      <img src="https://picsum.photos/id/1047/380/200" alt="Sky">
+      <div class="overlay"><span class="caption">Sky &mdash; 06</span></div>
+    </div>
+    <div class="g-card">
+      <img src="https://picsum.photos/id/1050/380/200" alt="City">
+      <div class="overlay"><span class="caption">City &mdash; 07</span></div>
+    </div>
+    <div class="g-card">
+      <img src="https://picsum.photos/id/1053/380/200" alt="Road">
+      <div class="overlay"><span class="caption">Road &mdash; 08</span></div>
+    </div>
+    <div class="g-card">
+      <img src="https://picsum.photos/id/1055/380/200" alt="Ocean">
+      <div class="overlay"><span class="caption">Ocean &mdash; 09</span></div>
+    </div>
+
+  </div>
+
+  <!-- ROW BAWAH 4 kolom -->
+  <div class="gallery-row">
+    <div class="g-card">
+      <img src="https://picsum.photos/id/1060/380/130" alt="Desert">
+      <div class="overlay"><span class="caption">Desert &mdash; 10</span></div>
+    </div>
+    <div class="g-card">
+      <img src="https://picsum.photos/id/1062/380/130" alt="Lake">
+      <div class="overlay"><span class="caption">Lake &mdash; 11</span></div>
+    </div>
+    <div class="g-card">
+      <img src="https://picsum.photos/id/1064/380/130" alt="Snow">
+      <div class="overlay"><span class="caption">Snow &mdash; 12</span></div>
+    </div>
+    <div class="g-card">
+      <img src="https://picsum.photos/id/1074/380/130" alt="Sunset">
+      <div class="overlay"><span class="caption">Sunset &mdash; 13</span></div>
+    </div>
+  </div>
+
+  <p class="footer-note">Ikhlas Portofolio &mdash; 13 Photos &mdash; 2026</p>
+
+</body>
+</html>
