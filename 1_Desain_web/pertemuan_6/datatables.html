@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datatable - Interactive Table</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <style>
+        .header-section {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        .nav-section {
+            background-color: #343a40;
+        }
+        .content-section {
+            min-height: 400px;
+            padding: 20px;
+            background-color: #e9ecef;
+        }
+        .main-content-section {
+            min-height: 400px;
+            padding: 20px;
+        }
+        .footer-section {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #007bff;
+        }
+        .external-link {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+        }
+        .external-link:hover {
+            background-color: #007bff;
+            color: white;
+            transform: translateX(5px);
+        }
+        .datatable-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .status-active {
+            background-color: #28a745;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .status-inactive {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="container">
+            <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://via.placeholder.com/1200x300/007bff/ffffff?text=Welcome+to+My+Website" class="d-block w-100" alt="Banner 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/1200x300/28a745/ffffff?text=Bootstrap+RWD+Project" class="d-block w-100" alt="Banner 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/1200x300/ffc107/ffffff?text=Responsive+Design" class="d-block w-100" alt="Banner 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#headerCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark nav-section">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://via.placeholder.com/50/ffffff/007bff?text=NF" alt="Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="bi bi-house-door"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="study.html"><i class="bi bi-book"></i> MyStudy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html"><i class="bi bi-images"></i> Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="datatables.html"><i class="bi bi-table"></i> Datatable</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Content (Sidebar) - Col 3 -->
+            <aside class="col-lg-3 col-md-4 content-section">
+                <h3 class="mb-4">Website Links</h3>
+                <div class="external-links">
+                    <a href="https://nfacademy.id" target="_blank" class="external-link">
+                        <i class="bi bi-link-45deg"></i> NF Academy
+                    </a>
+                    <a href="https://nurulfikri.ac.id" target="_blank" class="external-link">
+                        <i class="bi bi-link-45deg"></i> Nurul Fikri
+                    </a>
+                    <a href="https://www.bootstrap.com" target="_blank" class="external-link">
+                        <i class="bi bi-link-45deg"></i> Bootstrap
+                    </a>
+                    <a href="https://www.w3schools.com" target="_blank" class="external-link">
+                        <i class="bi bi-link-45deg"></i> W3Schools
+                    </a>
+                    <a href="https://developer.mozilla.org" target="_blank" class="external-link">
+                        <i class="bi bi-link-45deg"></i> MDN Web Docs
+                    </a>
+                    <a href="https://github.com" target="_blank" class="external-link">
+                        <i class="bi bi-link-45deg"></i> GitHub
+                    </a>
+                </div>
+            </aside>
+
+            <!-- Main Content - Col 9 -->
+            <main class="col-lg-9 col-md-8 main-content-section" id="mainContent">
+                <h1 class="mb-4"><i class="bi bi-table"></i> DataTable Interaktif</h1>
+                
+                <div class="alert alert-success">
+                    <i class="bi bi-info-circle"></i> Tabel ini dilengkapi dengan fitur pencarian, sorting, dan pagination menggunakan DataTables.
+                </div>
+
+                <div class="datatable-container">
+                    <h4 class="mb-3"><i class="bi bi-people"></i> Daftar Mahasiswa</h4>
+                    <table id="mahasiswaTable" class="table table-striped table-hover" style="width:100%">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>No</th>
+                                <th>NIM</th>
+                                <th>Nama Lengkap</th>
+                                <th>Jurusan</th>
+                                <th>Semester</th>
+                                <th>IPK</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2023001</td>
+                                <td>Ahmad Fauzi</td>
+                                <td>Teknik Informatika</td>
+                                <td>6</td>
+                                <td>3.85</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2023002</td>
+                                <td>Siti Nurhaliza</td>
+                                <td>Sistem Informasi</td>
+                                <td>4</td>
+                                <td>3.92</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>2023003</td>
+                                <td>Budi Santoso</td>
+                                <td>Teknik Informatika</td>
+                                <td>5</td>
+                                <td>3.67</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>2023004</td>
+                                <td>Dewi Lestari</td>
+                                <td>Manajemen Informatika</td>
+                                <td>3</td>
+                                <td>3.75</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>2023005</td>
+                                <td>Eko Prasetyo</td>
+                                <td>Teknik Informatika</td>
+                                <td>6</td>
+                                <td>3.58</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>2023006</td>
+                                <td>Fitri Handayani</td>
+                                <td>Sistem Informasi</td>
+                                <td>4</td>
+                                <td>3.88</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>2023007</td>
+                                <td>Gilang Ramadhan</td>
+                                <td>Teknik Informatika</td>
+                                <td>2</td>
+                                <td>3.45</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>2023008</td>
+                                <td>Hani Kartika</td>
+                                <td>Manajemen Informatika</td>
+                                <td>5</td>
+                                <td>3.95</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>2023009</td>
+                                <td>Imam Supriyadi</td>
+                                <td>Sistem Informasi</td>
+                                <td>1</td>
+                                <td>3.52</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>2023010</td>
+                                <td>Jasmine Ayu</td>
+                                <td>Teknik Informatika</td>
+                                <td>6</td>
+                                <td>3.78</td>
+                                <td><span class="status-inactive">Cuti</span></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>2023011</td>
+                                <td>Kurniawan Dwi</td>
+                                <td>Manajemen Informatika</td>
+                                <td>4</td>
+                                <td>3.62</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>2023012</td>
+                                <td>Lina Marlina</td>
+                                <td>Sistem Informasi</td>
+                                <td>3</td>
+                                <td>3.89</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>2023013</td>
+                                <td>Muhammad Ridwan</td>
+                                <td>Teknik Informatika</td>
+                                <td>5</td>
+                                <td>3.71</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>2023014</td>
+                                <td>Nurul Azizah</td>
+                                <td>Sistem Informasi</td>
+                                <td>2</td>
+                                <td>3.83</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>2023015</td>
+                                <td>Oktavia Putri</td>
+                                <td>Manajemen Informatika</td>
+                                <td>6</td>
+                                <td>3.90</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td>2023016</td>
+                                <td>Putra Wijaya</td>
+                                <td>Teknik Informatika</td>
+                                <td>4</td>
+                                <td>3.55</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>2023017</td>
+                                <td>Qori Amalia</td>
+                                <td>Sistem Informasi</td>
+                                <td>1</td>
+                                <td>3.68</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td>2023018</td>
+                                <td>Rudi Hartono</td>
+                                <td>Teknik Informatika</td>
+                                <td>5</td>
+                                <td>3.42</td>
+                                <td><span class="status-inactive">Cuti</span></td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td>2023019</td>
+                                <td>Sari Wulandari</td>
+                                <td>Manajemen Informatika</td>
+                                <td>3</td>
+                                <td>3.97</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>2023020</td>
+                                <td>Taufik Hidayat</td>
+                                <td>Sistem Informasi</td>
+                                <td>6</td>
+                                <td>3.73</td>
+                                <td><span class="status-active">Aktif</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h3 class="text-primary">20</h3>
+                                <p class="mb-0">Total Mahasiswa</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h3 class="text-success">18</h3>
+                                <p class="mb-0">Status Aktif</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h3 class="text-warning">3.72</h3>
+                                <p class="mb-0">Rata-rata IPK</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-section mt-5">
+        <div class="container">
+            <h5>Tentang Pembuat</h5>
+            <p>Tugas RWD Bootstrap - Desain Web</p>
+            <p>Pertemuan 6 - Studi Independen</p>
+            <div class="social-icons mt-3">
+                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+            </div>
+            <p class="mt-3 mb-0">&copy; 2026 RWD Bootstrap Project</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#mahasiswaTable').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/id.json',
+                    searchPlaceholder: "Cari data...",
+                    search: "Pencarian:",
+                    lengthMenu: "Tampilkan _MENU_ data per halaman",
+                    info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                    infoEmpty: "Menampilkan 0 sampai 0 dari 0 data",
+                    infoFiltered: "(difilter dari _MAX_ total data)",
+                    zeroRecords: "Data tidak ditemukan",
+                    paginate: {
+                        first: "Pertama",
+                        last: "Terakhir",
+                        next: "Selanjutnya",
+                        previous: "Sebelumnya"
+                    }
+                },
+                pageLength: 10,
+                ordering: true,
+                responsive: true
+            });
+        });
+    </script>
+</body>
+</html>

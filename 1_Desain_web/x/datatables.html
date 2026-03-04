@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datatable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:1rem}
+        .toolbar .form-control,.toolbar .form-select{background:#222;border:1px solid #444;color:#e0e0e0;border-radius:8px;font-size:.88rem}
+        .toolbar .form-control:focus,.toolbar .form-select:focus{border-color:#c9a84c;box-shadow:0 0 0 .15rem rgba(201,168,76,.25);background:#2a2a2a;color:#fff}
+        .pagination .page-link{background:#222;border-color:#333;color:#ccc;font-size:.85rem}
+        .pagination .page-link:hover{background:#c9a84c;color:#0f0f0f;border-color:#c9a84c}
+        .pagination .active .page-link{background:#c9a84c;border-color:#c9a84c;color:#0f0f0f}
+        .table-info-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-top:.8rem;font-size:.85rem;color:#999}
+        .sort-icon{cursor:pointer;opacity:.5;font-size:.75rem;margin-left:4px}
+        .sort-icon.active-sort{opacity:1;color:#c9a84c}
+        th{cursor:pointer;user-select:none;white-space:nowrap}
+    </style>
+</head>
+<body class="inner-page">
+
+<div class="container-fluid py-3 px-4">
+    <h2 class="page-title"><i class="bi bi-table me-2"></i>Student Database</h2>
+    <p class="page-subtitle">Complete student records &mdash; search, filter, and export</p>
+
+    <div class="dark-card p-4">
+        <!-- Toolbar: Search, Filter, Export -->
+        <div class="toolbar">
+            <div class="flex-grow-1" style="min-width:200px;max-width:350px">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text" style="background:#222;border:1px solid #444;color:#c9a84c"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" id="searchInput" placeholder="Search name, NIM, city...">
+                </div>
+            </div>
+            <select class="form-select form-select-sm" id="filterMajor" style="width:auto;min-width:160px">
+                <option value="">All Majors</option>
+                <option value="Informatika">Informatika</option>
+                <option value="Sistem Informasi">Sistem Informasi</option>
+                <option value="Teknik Komputer">Teknik Komputer</option>
+                <option value="Data Science">Data Science</option>
+            </select>
+            <select class="form-select form-select-sm" id="filterSemester" style="width:auto;min-width:140px">
+                <option value="">All Semesters</option>
+                <option value="2">Semester 2</option>
+                <option value="4">Semester 4</option>
+                <option value="6">Semester 6</option>
+                <option value="8">Semester 8</option>
+            </select>
+            <select class="form-select form-select-sm" id="filterStatus" style="width:auto;min-width:130px">
+                <option value="">All Status</option>
+                <option value="Active">Active</option>
+                <option value="On Leave">On Leave</option>
+                <option value="Graduated">Graduated</option>
+            </select>
+            <button class="btn btn-gold btn-sm" onclick="exportCSV()">
+                <i class="bi bi-download me-1"></i>Export CSV
+            </button>
+        </div>
+
+        <!-- Table -->
+        <div class="table-responsive">
+            <table class="table table-striped table-hover dark-table align-middle mb-0" id="dataTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">No <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                        <th onclick="sortTable(1)">NIM <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                        <th onclick="sortTable(2)">Name <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                        <th onclick="sortTable(3)">Major <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                        <th onclick="sortTable(4)">Semester <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                        <th onclick="sortTable(5)">City <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                        <th onclick="sortTable(6)">GPA <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                        <th onclick="sortTable(7)">Status <i class="bi bi-arrow-down-up sort-icon"></i></th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+
+        <!-- Pagination & Info -->
+        <div class="table-info-bar">
+            <span id="tableInfo">Showing 1-10 of 75 entries</span>
+            <div class="d-flex align-items-center gap-2">
+                <select class="form-select form-select-sm" id="perPage" style="width:auto;background:#222;border:1px solid #444;color:#ccc;font-size:.82rem" onchange="changePage(1)">
+                    <option value="10">10 / page</option>
+                    <option value="25">25 / page</option>
+                    <option value="50">50 / page</option>
+                    <option value="100">100 / page</option>
+                </select>
+                <nav><ul class="pagination pagination-sm mb-0" id="pagination"></ul></nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const students = [
+    {nim:"2023001",name:"Ahmad Fauzi",major:"Informatika",sem:8,city:"Jakarta",gpa:3.75,status:"Active"},
+    {nim:"2023002",name:"Siti Nurhaliza",major:"Sistem Informasi",sem:8,city:"Surabaya",gpa:3.82,status:"Active"},
+    {nim:"2023003",name:"Budi Santoso",major:"Informatika",sem:6,city:"Bandung",gpa:3.60,status:"Active"},
+    {nim:"2023004",name:"Dewi Lestari",major:"Sistem Informasi",sem:6,city:"Yogyakarta",gpa:3.90,status:"Active"},
+    {nim:"2023005",name:"Rizky Pratama",major:"Teknik Komputer",sem:4,city:"Semarang",gpa:3.55,status:"Active"},
+    {nim:"2023006",name:"Anisa Rahma",major:"Data Science",sem:4,city:"Malang",gpa:3.78,status:"Active"},
+    {nim:"2023007",name:"Fajar Nugroho",major:"Informatika",sem:2,city:"Medan",gpa:3.45,status:"Active"},
+    {nim:"2023008",name:"Putri Amelia",major:"Sistem Informasi",sem:8,city:"Makassar",gpa:3.88,status:"Graduated"},
+    {nim:"2023009",name:"Hendra Wijaya",major:"Teknik Komputer",sem:6,city:"Palembang",gpa:3.30,status:"Active"},
+    {nim:"2023010",name:"Lina Marlina",major:"Data Science",sem:2,city:"Denpasar",gpa:3.65,status:"Active"},
+    {nim:"2023011",name:"Rudi Hermawan",major:"Informatika",sem:8,city:"Surabaya",gpa:3.50,status:"Active"},
+    {nim:"2023012",name:"Maya Sari",major:"Sistem Informasi",sem:4,city:"Jakarta",gpa:3.72,status:"Active"},
+    {nim:"2023013",name:"Eko Prasetyo",major:"Teknik Komputer",sem:6,city:"Bandung",gpa:3.40,status:"On Leave"},
+    {nim:"2023014",name:"Rina Wati",major:"Data Science",sem:8,city:"Yogyakarta",gpa:3.85,status:"Graduated"},
+    {nim:"2023015",name:"Doni Saputra",major:"Informatika",sem:4,city:"Semarang",gpa:3.58,status:"Active"},
+    {nim:"2023016",name:"Fitri Handayani",major:"Sistem Informasi",sem:2,city:"Surabaya",gpa:3.62,status:"Active"},
+    {nim:"2023017",name:"Agus Setiawan",major:"Teknik Komputer",sem:8,city:"Malang",gpa:3.35,status:"Active"},
+    {nim:"2023018",name:"Novi Susanti",major:"Data Science",sem:6,city:"Jakarta",gpa:3.80,status:"Active"},
+    {nim:"2023019",name:"Irfan Hakim",major:"Informatika",sem:2,city:"Makassar",gpa:3.48,status:"Active"},
+    {nim:"2023020",name:"Tika Permata",major:"Sistem Informasi",sem:4,city:"Palembang",gpa:3.70,status:"Active"},
+    {nim:"2023021",name:"Wahyu Kurniawan",major:"Teknik Komputer",sem:6,city:"Medan",gpa:3.42,status:"Active"},
+    {nim:"2023022",name:"Sinta Dewi",major:"Data Science",sem:8,city:"Denpasar",gpa:3.92,status:"Graduated"},
+    {nim:"2023023",name:"Arif Rahman",major:"Informatika",sem:4,city:"Bandung",gpa:3.55,status:"Active"},
+    {nim:"2023024",name:"Dina Anggraeni",major:"Sistem Informasi",sem:6,city:"Jakarta",gpa:3.68,status:"Active"},
+    {nim:"2023025",name:"Bayu Aditya",major:"Teknik Komputer",sem:2,city:"Surabaya",gpa:3.38,status:"Active"},
+    {nim:"2023026",name:"Ratna Sari",major:"Data Science",sem:4,city:"Yogyakarta",gpa:3.74,status:"Active"},
+    {nim:"2023027",name:"Gilang Ramadhan",major:"Informatika",sem:8,city:"Semarang",gpa:3.60,status:"Active"},
+    {nim:"2023028",name:"Lia Permatasari",major:"Sistem Informasi",sem:2,city:"Malang",gpa:3.52,status:"Active"},
+    {nim:"2023029",name:"Yusuf Maulana",major:"Teknik Komputer",sem:4,city:"Makassar",gpa:3.46,status:"On Leave"},
+    {nim:"2023030",name:"Wulan Dari",major:"Data Science",sem:6,city:"Palembang",gpa:3.78,status:"Active"},
+    {nim:"2023031",name:"Andi Firmansyah",major:"Informatika",sem:6,city:"Jakarta",gpa:3.65,status:"Active"},
+    {nim:"2023032",name:"Nadia Putri",major:"Sistem Informasi",sem:8,city:"Medan",gpa:3.88,status:"Graduated"},
+    {nim:"2023033",name:"Ridwan Kamil",major:"Teknik Komputer",sem:8,city:"Bandung",gpa:3.32,status:"Active"},
+    {nim:"2023034",name:"Mega Wulandari",major:"Data Science",sem:2,city:"Denpasar",gpa:3.70,status:"Active"},
+    {nim:"2023035",name:"Faisal Akbar",major:"Informatika",sem:4,city:"Surabaya",gpa:3.57,status:"Active"},
+    {nim:"2023036",name:"Indah Purnama",major:"Sistem Informasi",sem:6,city:"Yogyakarta",gpa:3.76,status:"Active"},
+    {nim:"2023037",name:"Oscar Pratama",major:"Teknik Komputer",sem:2,city:"Semarang",gpa:3.28,status:"Active"},
+    {nim:"2023038",name:"Yuni Astuti",major:"Data Science",sem:4,city:"Malang",gpa:3.82,status:"Active"},
+    {nim:"2023039",name:"Kevin Anggara",major:"Informatika",sem:8,city:"Makassar",gpa:3.50,status:"Active"},
+    {nim:"2023040",name:"Clara Bella",major:"Sistem Informasi",sem:2,city:"Palembang",gpa:3.64,status:"Active"},
+    {nim:"2023041",name:"Dimas Prayogo",major:"Teknik Komputer",sem:4,city:"Jakarta",gpa:3.44,status:"Active"},
+    {nim:"2023042",name:"Ayu Lestari",major:"Data Science",sem:6,city:"Surabaya",gpa:3.86,status:"Active"},
+    {nim:"2023043",name:"Rio Fernando",major:"Informatika",sem:6,city:"Bandung",gpa:3.52,status:"On Leave"},
+    {nim:"2023044",name:"Hani Safitri",major:"Sistem Informasi",sem:4,city:"Medan",gpa:3.72,status:"Active"},
+    {nim:"2023045",name:"Taufik Hidayat",major:"Teknik Komputer",sem:8,city:"Denpasar",gpa:3.36,status:"Active"},
+    {nim:"2023046",name:"Bella Oktavia",major:"Data Science",sem:8,city:"Yogyakarta",gpa:3.90,status:"Graduated"},
+    {nim:"2023047",name:"Fadhil Rahman",major:"Informatika",sem:2,city:"Semarang",gpa:3.48,status:"Active"},
+    {nim:"2023048",name:"Dian Permata",major:"Sistem Informasi",sem:6,city:"Malang",gpa:3.66,status:"Active"},
+    {nim:"2023049",name:"Surya Darma",major:"Teknik Komputer",sem:6,city:"Makassar",gpa:3.40,status:"Active"},
+    {nim:"2023050",name:"Riska Aminda",major:"Data Science",sem:2,city:"Palembang",gpa:3.74,status:"Active"},
+    {nim:"2023051",name:"Zaki Mubarak",major:"Informatika",sem:4,city:"Jakarta",gpa:3.62,status:"Active"},
+    {nim:"2023052",name:"Laila Fitri",major:"Sistem Informasi",sem:8,city:"Surabaya",gpa:3.84,status:"Active"},
+    {nim:"2023053",name:"Galih Prakoso",major:"Teknik Komputer",sem:2,city:"Bandung",gpa:3.30,status:"Active"},
+    {nim:"2023054",name:"Nisa Aulia",major:"Data Science",sem:4,city:"Yogyakarta",gpa:3.76,status:"Active"},
+    {nim:"2023055",name:"Hafiz Pratama",major:"Informatika",sem:6,city:"Semarang",gpa:3.54,status:"Active"},
+    {nim:"2023056",name:"Citra Dewi",major:"Sistem Informasi",sem:2,city:"Malang",gpa:3.68,status:"Active"},
+    {nim:"2023057",name:"Lutfi Hakim",major:"Teknik Komputer",sem:4,city:"Medan",gpa:3.42,status:"On Leave"},
+    {nim:"2023058",name:"Shinta Maharani",major:"Data Science",sem:6,city:"Denpasar",gpa:3.80,status:"Active"},
+    {nim:"2023059",name:"Yoga Aditya",major:"Informatika",sem:8,city:"Makassar",gpa:3.56,status:"Active"},
+    {nim:"2023060",name:"Eka Putri",major:"Sistem Informasi",sem:4,city:"Palembang",gpa:3.70,status:"Active"},
+    {nim:"2023061",name:"Rendi Saputra",major:"Teknik Komputer",sem:8,city:"Jakarta",gpa:3.34,status:"Active"},
+    {nim:"2023062",name:"Mira Handayani",major:"Data Science",sem:8,city:"Surabaya",gpa:3.88,status:"Graduated"},
+    {nim:"2023063",name:"Ilham Maulana",major:"Informatika",sem:2,city:"Bandung",gpa:3.46,status:"Active"},
+    {nim:"2023064",name:"Tasya Nabila",major:"Sistem Informasi",sem:6,city:"Yogyakarta",gpa:3.74,status:"Active"},
+    {nim:"2023065",name:"Bima Sakti",major:"Teknik Komputer",sem:6,city:"Semarang",gpa:3.38,status:"Active"},
+    {nim:"2023066",name:"Zahra Auliya",major:"Data Science",sem:2,city:"Malang",gpa:3.72,status:"Active"},
+    {nim:"2023067",name:"Rangga Putra",major:"Informatika",sem:4,city:"Medan",gpa:3.58,status:"Active"},
+    {nim:"2023068",name:"Salma Azzahra",major:"Sistem Informasi",sem:8,city:"Denpasar",gpa:3.86,status:"Active"},
+    {nim:"2023069",name:"Naufal Rafif",major:"Teknik Komputer",sem:2,city:"Makassar",gpa:3.32,status:"Active"},
+    {nim:"2023070",name:"Puspita Sari",major:"Data Science",sem:4,city:"Palembang",gpa:3.78,status:"Active"},
+    {nim:"2023071",name:"Aldi Taher",major:"Informatika",sem:6,city:"Jakarta",gpa:3.50,status:"On Leave"},
+    {nim:"2023072",name:"Kania Rahma",major:"Sistem Informasi",sem:2,city:"Surabaya",gpa:3.66,status:"Active"},
+    {nim:"2023073",name:"Farhan Dwi",major:"Teknik Komputer",sem:4,city:"Bandung",gpa:3.44,status:"Active"},
+    {nim:"2023074",name:"Adinda Putri",major:"Data Science",sem:6,city:"Yogyakarta",gpa:3.84,status:"Active"},
+    {nim:"2023075",name:"Satria Wibowo",major:"Informatika",sem:8,city:"Semarang",gpa:3.62,status:"Active"}
+];
+
+// ===== STATE =====
+let filtered = [...students];
+let currentPage = 1;
+let sortCol = -1;
+let sortAsc = true;
+
+// ===== RENDER TABLE =====
+function renderTable() {
+    const perPage = parseInt(document.getElementById('perPage').value);
+    const start = (currentPage - 1) * perPage;
+    const pageData = filtered.slice(start, start + perPage);
+    const tbody = document.getElementById('tableBody');
+
+    if (pageData.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" class="text-center py-4" style="color:#888"><i class="bi bi-inbox me-2" style="font-size:1.5rem"></i>No matching records found</td></tr>';
+    } else {
+        tbody.innerHTML = pageData.map((s, i) => {
+            const statusClass = s.status === 'Active' ? 'background:#c9a84c;color:#0f0f0f' :
+                                s.status === 'Graduated' ? 'background:#198754;color:#fff' :
+                                'background:#6c757d;color:#fff';
+            return `<tr>
+                <td>${start + i + 1}</td>
+                <td>${s.nim}</td>
+                <td>${s.name}</td>
+                <td>${s.major}</td>
+                <td>${s.sem}</td>
+                <td>${s.city}</td>
+                <td>${s.gpa.toFixed(2)}</td>
+                <td><span class="badge" style="${statusClass}">${s.status}</span></td>
+            </tr>`;
+        }).join('');
+    }
+
+    // Info text
+    const total = filtered.length;
+    const end = Math.min(start + perPage, total);
+    document.getElementById('tableInfo').textContent = total === 0
+        ? 'No entries found'
+        : `Showing ${start + 1}-${end} of ${total} entries`;
+
+    renderPagination();
+}
+
+// ===== PAGINATION =====
+function renderPagination() {
+    const perPage = parseInt(document.getElementById('perPage').value);
+    const totalPages = Math.ceil(filtered.length / perPage) || 1;
+    const ul = document.getElementById('pagination');
+    let html = '';
+
+    html += `<li class="page-item ${currentPage===1?'disabled':''}"><a class="page-link" href="#" onclick="changePage(${currentPage-1});return false">&laquo;</a></li>`;
+
+    let startP = Math.max(1, currentPage - 2);
+    let endP = Math.min(totalPages, startP + 4);
+    if (endP - startP < 4) startP = Math.max(1, endP - 4);
+
+    for (let p = startP; p <= endP; p++) {
+        html += `<li class="page-item ${p===currentPage?'active':''}"><a class="page-link" href="#" onclick="changePage(${p});return false">${p}</a></li>`;
+    }
+
+    html += `<li class="page-item ${currentPage===totalPages?'disabled':''}"><a class="page-link" href="#" onclick="changePage(${currentPage+1});return false">&raquo;</a></li>`;
+    ul.innerHTML = html;
+}
+
+function changePage(p) {
+    const perPage = parseInt(document.getElementById('perPage').value);
+    const totalPages = Math.ceil(filtered.length / perPage) || 1;
+    currentPage = Math.max(1, Math.min(p, totalPages));
+    renderTable();
+}
+
+// ===== SEARCH & FILTER =====
+function applyFilters() {
+    const search = document.getElementById('searchInput').value.toLowerCase().trim();
+    const major = document.getElementById('filterMajor').value;
+    const sem = document.getElementById('filterSemester').value;
+    const status = document.getElementById('filterStatus').value;
+
+    filtered = students.filter(s => {
+        const matchSearch = !search || s.name.toLowerCase().includes(search) ||
+            s.nim.includes(search) || s.city.toLowerCase().includes(search) ||
+            s.major.toLowerCase().includes(search);
+        const matchMajor = !major || s.major === major;
+        const matchSem = !sem || s.sem === parseInt(sem);
+        const matchStatus = !status || s.status === status;
+        return matchSearch && matchMajor && matchSem && matchStatus;
+    });
+
+    // Re-apply sort if active
+    if (sortCol >= 0) applySortToFiltered();
+
+    currentPage = 1;
+    renderTable();
+}
+
+// ===== SORTING =====
+function sortTable(colIdx) {
+    if (sortCol === colIdx) {
+        sortAsc = !sortAsc;
+    } else {
+        sortCol = colIdx;
+        sortAsc = true;
+    }
+    applySortToFiltered();
+    renderTable();
+
+    // Highlight sort icon
+    document.querySelectorAll('.sort-icon').forEach((el, i) => {
+        el.classList.toggle('active-sort', i === colIdx);
+        el.className = el.className.replace(/bi-arrow-(up|down)\b/g, 'bi-arrow-down-up');
+        if (i === colIdx) {
+            el.classList.remove('bi-arrow-down-up');
+            el.classList.add(sortAsc ? 'bi-arrow-up' : 'bi-arrow-down');
+        }
+    });
+}
+
+function applySortToFiltered() {
+    const keys = ['_no','nim','name','major','sem','city','gpa','status'];
+    const key = keys[sortCol];
+    if (key === '_no') return;
+
+    filtered.sort((a, b) => {
+        let va = a[key], vb = b[key];
+        if (typeof va === 'string') { va = va.toLowerCase(); vb = vb.toLowerCase(); }
+        if (va < vb) return sortAsc ? -1 : 1;
+        if (va > vb) return sortAsc ? 1 : -1;
+        return 0;
+    });
+}
+
+// ===== CSV EXPORT =====
+function exportCSV() {
+    const headers = ['No','NIM','Name','Major','Semester','City','GPA','Status'];
+    const rows = filtered.map((s, i) => [i+1, s.nim, s.name, s.major, s.sem, s.city, s.gpa.toFixed(2), s.status]);
+    let csv = headers.join(',') + '\n';
+    rows.forEach(r => {
+        csv += r.map(v => `"${v}"`).join(',') + '\n';
+    });
+
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'student_data.csv';
+    link.click();
+    URL.revokeObjectURL(link.href);
+}
+
+// ===== INIT =====
+document.getElementById('searchInput').addEventListener('input', applyFilters);
+document.getElementById('filterMajor').addEventListener('change', applyFilters);
+document.getElementById('filterSemester').addEventListener('change', applyFilters);
+document.getElementById('filterStatus').addEventListener('change', applyFilters);
+
+renderTable();
+</script>
+</body>
+</html>
