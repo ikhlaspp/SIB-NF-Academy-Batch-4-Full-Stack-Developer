@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Manajemen Produk Toko</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <span class="header-icon">&#128722;</span>
+            <div>
+                <h1>Manajemen Produk</h1>
+                <p>Kelola stok dan harga produk toko Anda</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Tambah Produk Baru</h3>
+            </div>
+            <form id="formTambahProduk">
+                <div class="form-group">
+                    <label for="nama">Nama Produk:</label>
+                    <input type="text" id="nama" required placeholder="Contoh: Monitor">
+                </div>
+                <div class="form-group">
+                    <label for="harga">Harga (Rp):</label>
+                    <input type="number" id="harga" required placeholder="Contoh: 1500000" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="stok">Stok:</label>
+                    <input type="number" id="stok" required placeholder="Contoh: 10" min="0">
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <span>&#43;</span> Simpan Produk
+                </button>
+            </form>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Daftar Produk</h3>
+                <span class="badge" id="jumlahProduk">0 Produk</span>
+            </div>
+            <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama Produk</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="daftarProduk">
+                    </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
