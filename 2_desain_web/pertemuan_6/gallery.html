@@ -3,137 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Kumpulan Gambar</title>
+    <title>Gallery - Visual Showcase</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
-        .header-section {
-            background-color: #f8f9fa;
-            padding: 20px 0;
-        }
-        .nav-section {
-            background-color: #343a40;
-        }
-        .content-section {
-            min-height: 400px;
-            padding: 20px;
-            background-color: #e9ecef;
-        }
-        .main-content-section {
-            min-height: 400px;
-            padding: 20px;
-        }
-        .footer-section {
-            background-color: #343a40;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        .logo {
-            width: 50px;
-            height: 50px;
-        }
-        .social-icons a {
-            color: white;
-            font-size: 24px;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .social-icons a:hover {
-            color: #007bff;
-        }
-        .external-link {
-            display: block;
-            padding: 10px;
-            margin: 5px 0;
-            background-color: #fff;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.3s;
-        }
-        .external-link:hover {
-            background-color: #007bff;
-            color: white;
-            transform: translateX(5px);
-        }
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 15px;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-        .category-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 1;
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header Section -->
     <header class="header-section">
-        <div class="container">
-            <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://via.placeholder.com/1200x300/007bff/ffffff?text=Welcome+to+My+Website" class="d-block w-100" alt="Banner 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://via.placeholder.com/1200x300/28a745/ffffff?text=Bootstrap+RWD+Project" class="d-block w-100" alt="Banner 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://via.placeholder.com/1200x300/ffc107/ffffff?text=Responsive+Design" class="d-block w-100" alt="Banner 3">
+        <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Gallery Banner">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Visual Showcase</h2>
+                        <p>Koleksi inspirasi desain dan teknologi terbaru</p>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#headerCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
             </div>
         </div>
     </header>
 
     <!-- Navigation Menu -->
-    <nav class="navbar navbar-expand-lg navbar-dark nav-section">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="https://via.placeholder.com/50/ffffff/007bff?text=NF" alt="Logo" class="logo">
+    <nav class="navbar navbar-expand-lg navbar-dark nav-section sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-rocket-takeoff-fill fs-2 me-2 text-primary"></i>
+                <span class="fs-4">RWD<span class="text-primary">Master</span></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -153,7 +54,7 @@
                         <a class="nav-link" href="datatables.html"><i class="bi bi-table"></i> Datatable</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                        <a class="nav-link btn btn-primary text-white ms-lg-3 px-4" href="login.html">Login</a>
                     </li>
                 </ul>
             </div>
@@ -165,197 +66,172 @@
         <div class="row">
             <!-- Content (Sidebar) - Col 3 -->
             <aside class="col-lg-3 col-md-4 content-section">
-                <h3 class="mb-4">Website Links</h3>
-                <div class="external-links">
-                    <a href="https://nfacademy.id" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> NF Academy
-                    </a>
-                    <a href="https://nurulfikri.ac.id" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> Nurul Fikri
-                    </a>
-                    <a href="https://www.bootstrap.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> Bootstrap
-                    </a>
-                    <a href="https://www.w3schools.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> W3Schools
-                    </a>
-                    <a href="https://developer.mozilla.org" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> MDN Web Docs
-                    </a>
-                    <a href="https://github.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> GitHub
-                    </a>
+                <h4 class="mb-4 fw-bold">Categories</h4>
+                <div class="list-group list-group-flush mb-4">
+                    <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center active rounded-3 mb-2">
+                        All Works <span class="badge bg-white text-primary rounded-pill">12</span>
+                    </button>
+                    <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center rounded-3 mb-2 border">
+                        Web Design <span class="badge bg-light text-dark rounded-pill">5</span>
+                    </button>
+                    <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center rounded-3 mb-2 border">
+                        UI/UX Case <span class="badge bg-light text-dark rounded-pill">4</span>
+                    </button>
+                    <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center rounded-3 border">
+                        Photography <span class="badge bg-light text-dark rounded-pill">3</span>
+                    </button>
+                </div>
+
+                <div class="card bg-light border-0 p-4 rounded-4">
+                    <h6 class="fw-bold mb-3">Filter Gambar</h6>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="latest" checked>
+                        <label class="form-check-label small" for="latest">Terbaru</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="popular">
+                        <label class="form-check-label small" for="popular">Terpopuler</label>
+                    </div>
                 </div>
             </aside>
 
             <!-- Main Content - Col 9 -->
             <main class="col-lg-9 col-md-8 main-content-section" id="mainContent">
-                <h1 class="mb-4"><i class="bi bi-camera-fill"></i> Gallery Gambar</h1>
-                
-                <div class="alert alert-info">
-                    <i class="bi bi-info-circle"></i> Kumpulan gambar dalam berbagai kategori. Hover pada gambar untuk melihat deskripsi.
+                <div class="mb-5 text-center text-md-start">
+                    <h2 class="fw-bold mb-3"><i class="bi bi-images text-primary me-2"></i> Gallery Project</h2>
+                    <p class="text-muted lead">Jelajahi berbagai karya visual dan implementasi teknologi dalam bentuk gambar berkualitas tinggi.</p>
                 </div>
 
-                <!-- Gallery Grid -->
-                <div class="row">
+                <div class="row g-4">
+                    <!-- Gallery Item 1 -->
                     <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-primary category-badge">Nature</span>
-                            <img src="https://via.placeholder.com/400x300/28a745/ffffff?text=Mountain+View" alt="Mountain View">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-mountain"></i> Mountain View</h5>
-                                <p>Pemandangan gunung yang indah</p>
+                        <div class="gallery-item card border-0 shadow-sm overflow-hidden">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Work 1">
+                                <div class="position-absolute top-0 end-0 m-3">
+                                    <span class="badge bg-primary px-3 py-2">Web Design</span>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-1">Modern Code Hub</h5>
+                                <p class="small text-muted mb-0">Interface desain untuk platform kolaborasi developer.</p>
                             </div>
                         </div>
                     </div>
+                    <!-- Gallery Item 2 -->
                     <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-success category-badge">Technology</span>
-                            <img src="https://via.placeholder.com/400x300/007bff/ffffff?text=Coding+Setup" alt="Coding Setup">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-laptop"></i> Coding Setup</h5>
-                                <p>Workspace setup untuk developer</p>
+                        <div class="gallery-item card border-0 shadow-sm overflow-hidden">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Work 2">
+                                <div class="position-absolute top-0 end-0 m-3">
+                                    <span class="badge bg-success px-3 py-2">Development</span>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-1">Architecture System</h5>
+                                <p class="small text-muted mb-0">Visualisasi struktur backend yang skalabel.</p>
                             </div>
                         </div>
                     </div>
+                    <!-- Gallery Item 3 -->
                     <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-warning category-badge">Urban</span>
-                            <img src="https://via.placeholder.com/400x300/ffc107/333333?text=City+Lights" alt="City Lights">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-building"></i> City Lights</h5>
-                                <p>Pemandangan kota di malam hari</p>
+                        <div class="gallery-item card border-0 shadow-sm overflow-hidden">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Work 3">
+                                <div class="position-absolute top-0 end-0 m-3">
+                                    <span class="badge bg-info text-dark px-3 py-2">Mobile App</span>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-1">Smart Wallet UI</h5>
+                                <p class="small text-muted mb-0">Desain aplikasi keuangan masa depan yang intuitif.</p>
                             </div>
                         </div>
                     </div>
+                    <!-- Gallery Item 4 -->
                     <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-danger category-badge">Food</span>
-                            <img src="https://via.placeholder.com/400x300/dc3545/ffffff?text=Delicious+Food" alt="Delicious Food">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-egg-fried"></i> Delicious Food</h5>
-                                <p>Kuliner nusantara yang lezat</p>
+                        <div class="gallery-item card border-0 shadow-sm overflow-hidden">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1522542550221-31fd19251a00?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Work 4">
+                                <div class="position-absolute top-0 end-0 m-3">
+                                    <span class="badge bg-warning text-dark px-3 py-2">UX Research</span>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-1">User Flow Design</h5>
+                                <p class="small text-muted mb-0">Hasil riset dan pemetaan perjalanan pengguna.</p>
                             </div>
                         </div>
                     </div>
+                    <!-- Gallery Item 5 -->
                     <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-info category-badge">Ocean</span>
-                            <img src="https://via.placeholder.com/400x300/17a2b8/ffffff?text=Beach+Sunset" alt="Beach Sunset">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-water"></i> Beach Sunset</h5>
-                                <p>Sunset di pantai yang memukau</p>
+                        <div class="gallery-item card border-0 shadow-sm overflow-hidden">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Work 5">
+                                <div class="position-absolute top-0 end-0 m-3">
+                                    <span class="badge bg-danger px-3 py-2">Programming</span>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-1">Algorithm Logic</h5>
+                                <p class="small text-muted mb-0">Visualisasi logika pemrograman kompleks.</p>
                             </div>
                         </div>
                     </div>
+                    <!-- Gallery Item 6 -->
                     <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-secondary category-badge">Art</span>
-                            <img src="https://via.placeholder.com/400x300/6c757d/ffffff?text=Abstract+Art" alt="Abstract Art">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-palette"></i> Abstract Art</h5>
-                                <p>Seni abstrak modern</p>
+                        <div class="gallery-item card border-0 shadow-sm overflow-hidden">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Work 6">
+                                <div class="position-absolute top-0 end-0 m-3">
+                                    <span class="badge bg-secondary px-3 py-2">Tech Art</span>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-primary category-badge">Nature</span>
-                            <img src="https://via.placeholder.com/400x300/198754/ffffff?text=Forest+Trail" alt="Forest Trail">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-trees"></i> Forest Trail</h5>
-                                <p>Jalur hiking di dalam hutan</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-success category-badge">Sport</span>
-                            <img src="https://via.placeholder.com/400x300/0d6efd/ffffff?text=Extreme+Sport" alt="Extreme Sport">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-bicycle"></i> Extreme Sport</h5>
-                                <p>Olahraga ekstrim yang menantang</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-warning category-badge">Travel</span>
-                            <img src="https://via.placeholder.com/400x300/fd7e14/ffffff?text=World+Tour" alt="World Tour">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-airplane"></i> World Tour</h5>
-                                <p>Perjalanan keliling dunia</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-danger category-badge">Architecture</span>
-                            <img src="https://via.placeholder.com/400x300/dc3545/ffffff?text=Modern+Building" alt="Modern Building">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-building"></i> Modern Building</h5>
-                                <p>Arsitektur bangunan modern</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-info category-badge">Animals</span>
-                            <img src="https://via.placeholder.com/400x300/0dcaf0/333333?text=Wildlife" alt="Wildlife">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-bug"></i> Wildlife</h5>
-                                <p>Kehidupan satwa liar</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item">
-                            <span class="badge bg-secondary category-badge">Music</span>
-                            <img src="https://via.placeholder.com/400x300/adb5bd/ffffff?text=Music+Concert" alt="Music Concert">
-                            <div class="gallery-overlay">
-                                <h5><i class="bi bi-music-note"></i> Music Concert</h5>
-                                <p>Konser musik live</p>
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-1">Circuit Board Art</h5>
+                                <p class="small text-muted mb-0">Kombinasi antara teknologi hardware dan seni visual.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-tag"></i> Kategori Gallery</h5>
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="badge bg-primary fs-6">Nature</span>
-                            <span class="badge bg-success fs-6">Technology</span>
-                            <span class="badge bg-warning text-dark fs-6">Urban</span>
-                            <span class="badge bg-danger fs-6">Food</span>
-                            <span class="badge bg-info fs-6">Ocean</span>
-                            <span class="badge bg-secondary fs-6">Art</span>
-                            <span class="badge bg-primary fs-6">Sport</span>
-                            <span class="badge bg-success fs-6">Travel</span>
-                            <span class="badge bg-warning text-dark fs-6">Architecture</span>
-                            <span class="badge bg-danger fs-6">Animals</span>
-                            <span class="badge bg-info fs-6">Music</span>
-                        </div>
-                    </div>
-                </div>
+                <nav class="mt-5">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
             </main>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer-section mt-5">
+    <footer class="footer-section">
         <div class="container">
-            <h5>Tentang Pembuat</h5>
-            <p>Tugas RWD Bootstrap - Desain Web</p>
-            <p>Pertemuan 6 - Studi Independen</p>
-            <div class="social-icons mt-3">
-                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
-                <a href="https://twitter.com" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
-                <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                <a href="https://github.com" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+            <div class="row mb-4">
+                <div class="col-md-4 text-md-start mb-4 mb-md-0">
+                    <h4 class="fw-bold mb-3 text-white">RWD<span class="text-primary">Master</span></h4>
+                    <p class="small opacity-75">Platform pembelajaran desain web responsif terbaik untuk mahasiswa dan profesional.</p>
+                </div>
+                <div class="col-md-4 text-md-end offset-md-4">
+                    <h5 class="fw-bold mb-3">Ikuti Kami</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
             </div>
-            <p class="mt-3 mb-0">&copy; 2026 RWD Bootstrap Project</p>
+            <hr class="opacity-25">
+            <p class="small mb-0 opacity-50">&copy; 2026 RWD Master Project. All rights reserved.</p>
         </div>
     </footer>
 

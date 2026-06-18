@@ -3,123 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Personal Profile</title>
+    <title>Home - RWD Master Profile</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
-        .header-section {
-            background-color: #f8f9fa;
-            padding: 20px 0;
-        }
-        .nav-section {
-            background-color: #343a40;
-        }
-        .content-section {
-            min-height: 400px;
-            padding: 20px;
-            background-color: #e9ecef;
-        }
-        .main-content-section {
-            min-height: 400px;
-            padding: 20px;
-        }
-        .footer-section {
-            background-color: #343a40;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        .logo {
-            width: 50px;
-            height: 50px;
-        }
-        .social-icons a {
-            color: white;
-            font-size: 24px;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .social-icons a:hover {
-            color: #007bff;
-        }
-        .external-link {
-            display: block;
-            padding: 10px;
-            margin: 5px 0;
-            background-color: #fff;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.3s;
-        }
-        .external-link:hover {
-            background-color: #007bff;
-            color: white;
-            transform: translateX(5px);
-        }
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #007bff;
-        }
-        .skill-bar {
-            height: 25px;
-            background-color: #e9ecef;
-            border-radius: 5px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-        .skill-progress {
-            height: 100%;
-            background-color: #007bff;
-            display: flex;
-            align-items: center;
-            padding-left: 10px;
-            color: white;
-            font-weight: bold;
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header Section -->
     <header class="header-section">
-        <div class="container">
-            <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://via.placeholder.com/1200x300/007bff/ffffff?text=Welcome+to+My+Website" class="d-block w-100" alt="Banner 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://via.placeholder.com/1200x300/28a745/ffffff?text=Bootstrap+RWD+Project" class="d-block w-100" alt="Banner 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://via.placeholder.com/1200x300/ffc107/ffffff?text=Responsive+Design" class="d-block w-100" alt="Banner 3">
+        <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Home Banner">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Personal Profile</h2>
+                        <p>Kenali lebih jauh tentang pembuat website ini</p>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#headerCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
             </div>
         </div>
     </header>
 
     <!-- Navigation Menu -->
-    <nav class="navbar navbar-expand-lg navbar-dark nav-section">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="https://via.placeholder.com/50/ffffff/007bff?text=NF" alt="Logo" class="logo">
+    <nav class="navbar navbar-expand-lg navbar-dark nav-section sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-rocket-takeoff-fill fs-2 me-2 text-primary"></i>
+                <span class="fs-4">RWD<span class="text-primary">Master</span></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -139,7 +54,7 @@
                         <a class="nav-link" href="datatables.html"><i class="bi bi-table"></i> Datatable</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                        <a class="nav-link btn btn-primary text-white ms-lg-3 px-4" href="login.html">Login</a>
                     </li>
                 </ul>
             </div>
@@ -151,155 +66,182 @@
         <div class="row">
             <!-- Content (Sidebar) - Col 3 -->
             <aside class="col-lg-3 col-md-4 content-section">
-                <h3 class="mb-4">Website Links</h3>
+                <h4 class="mb-4 fw-bold">Quick Links</h4>
                 <div class="external-links">
                     <a href="https://nfacademy.id" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> NF Academy
+                        <i class="bi bi-mortarboard-fill"></i> NF Academy
                     </a>
                     <a href="https://nurulfikri.ac.id" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> Nurul Fikri
+                        <i class="bi bi-building"></i> Nurul Fikri
                     </a>
                     <a href="https://www.bootstrap.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> Bootstrap
-                    </a>
-                    <a href="https://www.w3schools.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> W3Schools
-                    </a>
-                    <a href="https://developer.mozilla.org" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> MDN Web Docs
+                        <i class="bi bi-bootstrap-fill"></i> Bootstrap
                     </a>
                     <a href="https://github.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> GitHub
+                        <i class="bi bi-github"></i> GitHub
                     </a>
                 </div>
             </aside>
 
             <!-- Main Content - Col 9 -->
             <main class="col-lg-9 col-md-8 main-content-section" id="mainContent">
-                <h1 class="mb-4"><i class="bi bi-person-circle"></i> Profile Personal</h1>
-                
-                <div class="row">
-                    <div class="col-md-4 text-center mb-4">
-                        <img src="https://via.placeholder.com/200/007bff/ffffff?text=Profile" alt="Profile Picture" class="profile-img mb-3">
-                        <h3>Nama Lengkap</h3>
-                        <p class="text-muted">Web Developer</p>
+                <div class="row align-items-center mb-5">
+                    <div class="col-md-4 text-center mb-4 mb-md-0">
+                        <div class="position-relative d-inline-block">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Profile Picture" class="profile-img rounded-circle img-fluid">
+                            <div class="position-absolute bottom-0 end-0 bg-success border border-white border-3 rounded-circle" style="width: 25px; height: 25px;"></div>
+                        </div>
+                        <h3 class="mt-4 fw-bold">Ikhlas Putra P.</h3>
+                        <p class="text-primary fw-medium">Full Stack Web Developer</p>
+                        <div class="d-flex justify-content-center gap-2 mt-2">
+                            <span class="badge bg-light text-primary border">HTML</span>
+                            <span class="badge bg-light text-primary border">CSS</span>
+                            <span class="badge bg-light text-primary border">JS</span>
+                        </div>
                     </div>
                     <div class="col-md-8">
-                        <div class="card mb-4">
-                            <div class="card-header bg-primary text-white">
-                                <h5 class="mb-0"><i class="bi bi-info-circle"></i> Biodata</h5>
-                            </div>
-                            <div class="card-body">
-                                <table class="table table-borderless">
-                                    <tr>
-                                        <td width="30%"><strong>Nama Lengkap</strong></td>
-                                        <td>: Nama Mahasiswa</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Tempat, Tanggal Lahir</strong></td>
-                                        <td>: Jakarta, 1 Januari 2000</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Alamat</strong></td>
-                                        <td>: Jl. Contoh No. 123, Jakarta</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Email</strong></td>
-                                        <td>: mahasiswa@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Telepon</strong></td>
-                                        <td>: +62 812-3456-7890</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Hobi</strong></td>
-                                        <td>: Coding, Reading, Traveling</td>
-                                    </tr>
-                                </table>
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-4 d-flex align-items-center">
+                                    <i class="bi bi-person-badge text-primary me-2"></i> Biodata Lengkap
+                                </h4>
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle">
+                                        <tr>
+                                            <td class="text-muted" width="35%">Nama Lengkap</td>
+                                            <td class="fw-semibold">Ikhlas Putra Pambagyo</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted">Instansi</td>
+                                            <td class="fw-semibold">UPN Veteran Jawa Timur</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted">Program</td>
+                                            <td class="fw-semibold">Studi Independen - Desain Web</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted">Email</td>
+                                            <td class="fw-semibold text-primary">ikhlas.putra@example.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted">Keahlian Utama</td>
+                                            <td class="fw-semibold">Responsive Web Design</td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row mt-4">
+                <div class="row g-4">
                     <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header bg-success text-white">
-                                <h5 class="mb-0"><i class="bi bi-code-slash"></i> Skills</h5>
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-header bg-white border-0 pt-4 px-4">
+                                <h5 class="fw-bold mb-0 d-flex align-items-center">
+                                    <i class="bi bi-bar-chart-line text-primary me-2"></i> Technical Skills
+                                </h5>
                             </div>
-                            <div class="card-body">
-                                <div class="mb-3">
-                                    <label>HTML & CSS</label>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 90%">90%</div>
+                            <div class="card-body p-4">
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="small fw-bold">Bootstrap 5</span>
+                                        <span class="small text-muted">95%</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-primary" style="width: 95%"></div>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label>JavaScript</label>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 80%">80%</div>
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="small fw-bold">Modern CSS/SCSS</span>
+                                        <span class="small text-muted">90%</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-primary" style="width: 90%"></div>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label>Bootstrap</label>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 85%">85%</div>
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="small fw-bold">JavaScript (ES6+)</span>
+                                        <span class="small text-muted">85%</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-primary" style="width: 85%"></div>
                                     </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label>PHP</label>
-                                    <div class="skill-bar">
-                                        <div class="skill-progress" style="width: 75%">75%</div>
+                                <div>
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span class="small fw-bold">UI/UX Design</span>
+                                        <span class="small text-muted">80%</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-primary" style="width: 80%"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card mb-4">
-                            <div class="card-header bg-warning text-dark">
-                                <h5 class="mb-0"><i class="bi bi-star"></i> Interests</h5>
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-header bg-white border-0 pt-4 px-4">
+                                <h5 class="fw-bold mb-0 d-flex align-items-center">
+                                    <i class="bi bi-heart text-danger me-2"></i> Areas of Interest
+                                </h5>
                             </div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Web Development</li>
-                                    <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Mobile Development</li>
-                                    <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> UI/UX Design</li>
-                                    <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Database Management</li>
-                                    <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Cloud Computing</li>
-                                </ul>
+                            <div class="card-body p-4">
+                                <div class="d-flex flex-column gap-3">
+                                    <div class="p-3 bg-light rounded-3 border-start border-primary border-4">
+                                        <h6 class="fw-bold mb-1">Front-End Architecture</h6>
+                                        <p class="small text-muted mb-0">Membangun struktur web yang skalabel dan efisien.</p>
+                                    </div>
+                                    <div class="p-3 bg-light rounded-3 border-start border-success border-4">
+                                        <h6 class="fw-bold mb-1">Accessibility (a11y)</h6>
+                                        <p class="small text-muted mb-0">Memastikan web dapat diakses oleh semua orang.</p>
+                                    </div>
+                                    <div class="p-3 bg-light rounded-3 border-start border-warning border-4">
+                                        <h6 class="fw-bold mb-1">Performance Tuning</h6>
+                                        <p class="small text-muted mb-0">Optimasi kecepatan loading untuk UX yang lebih baik.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-header bg-info text-white">
-                        <h5 class="mb-0"><i class="bi bi-chat-quote"></i> About Me</h5>
+                <div class="card border-0 shadow-sm mt-5 bg-dark text-white p-5 overflow-hidden position-relative">
+                    <div class="position-relative z-index-1">
+                        <h3 class="fw-bold mb-3">Filosofi Desain</h3>
+                        <p class="lead opacity-75">"Desain bukan hanya tentang bagaimana ia terlihat, tapi bagaimana ia bekerja."</p>
+                        <hr class="opacity-25 my-4">
+                        <p class="mb-0">Saya percaya bahwa setiap baris kode harus memiliki tujuan. Fokus saya adalah menciptakan harmoni antara estetika visual dan fungsionalitas teknis untuk memberikan nilai nyata bagi pengguna.</p>
                     </div>
-                    <div class="card-body">
-                        <p>Saya adalah seorang mahasiswa yang memiliki passion dalam bidang web development. Saya tertarik untuk terus belajar dan mengembangkan kemampuan dalam menciptakan website yang responsive dan user-friendly.</p>
-                        <p>Melalui pembelajaran Bootstrap dan teknologi web modern lainnya, saya berharap dapat berkontribusi dalam menciptakan solusi digital yang bermanfaat bagi masyarakat.</p>
-                    </div>
+                    <i class="bi bi-quote position-absolute top-0 end-0 opacity-10" style="font-size: 15rem; transform: translate(20%, -20%);"></i>
                 </div>
             </main>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer-section mt-5">
+    <footer class="footer-section">
         <div class="container">
-            <h5>Tentang Pembuat</h5>
-            <p>Tugas RWD Bootstrap - Desain Web</p>
-            <p>Pertemuan 6 - Studi Independen</p>
-            <div class="social-icons mt-3">
-                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
-                <a href="https://twitter.com" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
-                <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                <a href="https://github.com" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+            <div class="row mb-4">
+                <div class="col-md-4 text-md-start mb-4 mb-md-0">
+                    <h4 class="fw-bold mb-3 text-white">RWD<span class="text-primary">Master</span></h4>
+                    <p class="small opacity-75">Platform pembelajaran desain web responsif terbaik untuk mahasiswa dan profesional.</p>
+                </div>
+                <div class="col-md-4 text-md-end offset-md-4">
+                    <h5 class="fw-bold mb-3">Ikuti Kami</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
             </div>
-            <p class="mt-3 mb-0">&copy; 2026 RWD Bootstrap Project</p>
+            <hr class="opacity-25">
+            <p class="small mb-0 opacity-50">&copy; 2026 RWD Master Project. All rights reserved.</p>
         </div>
     </footer>
 

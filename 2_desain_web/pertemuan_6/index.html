@@ -3,100 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas RWD Bootstrap</title>
+    <title>RWD Master - Professional Web Design</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
-        .header-section {
-            background-color: #f8f9fa;
-            padding: 20px 0;
-        }
-        .nav-section {
-            background-color: #343a40;
-        }
-        .content-section {
-            min-height: 400px;
-            padding: 20px;
-            background-color: #e9ecef;
-        }
-        .main-content-section {
-            min-height: 400px;
-            padding: 20px;
-        }
-        .footer-section {
-            background-color: #343a40;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        .logo {
-            width: 50px;
-            height: 50px;
-        }
-        .social-icons a {
-            color: white;
-            font-size: 24px;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .social-icons a:hover {
-            color: #007bff;
-        }
-        .external-link {
-            display: block;
-            padding: 10px;
-            margin: 5px 0;
-            background-color: #fff;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.3s;
-        }
-        .external-link:hover {
-            background-color: #007bff;
-            color: white;
-            transform: translateX(5px);
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header Section -->
     <header class="header-section">
-        <div class="container">
-            <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://via.placeholder.com/1200x300/007bff/ffffff?text=Welcome+to+My+Website" class="d-block w-100" alt="Banner 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://via.placeholder.com/1200x300/28a745/ffffff?text=Bootstrap+RWD+Project" class="d-block w-100" alt="Banner 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://via.placeholder.com/1200x300/ffc107/ffffff?text=Responsive+Design" class="d-block w-100" alt="Banner 3">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#headerCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
+        <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2"></button>
             </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Banner 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Professional RWD Project</h2>
+                        <p>Membangun website modern dengan Bootstrap 5</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Banner 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Modern Interface</h2>
+                        <p>Desain yang bersih, minimalis, dan fungsional</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Banner 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Fully Responsive</h2>
+                        <p>Terlihat sempurna di semua perangkat</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#headerCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
         </div>
     </header>
 
     <!-- Navigation Menu -->
-    <nav class="navbar navbar-expand-lg navbar-dark nav-section">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="https://via.placeholder.com/50/ffffff/007bff?text=NF" alt="Logo" class="logo">
+    <nav class="navbar navbar-expand-lg navbar-dark nav-section sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-rocket-takeoff-fill fs-2 me-2 text-primary"></i>
+                <span class="fs-4">RWD<span class="text-primary">Master</span></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -116,7 +79,7 @@
                         <a class="nav-link" href="datatables.html"><i class="bi bi-table"></i> Datatable</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                        <a class="nav-link btn btn-primary text-white ms-lg-3 px-4" href="login.html">Login</a>
                     </li>
                 </ul>
             </div>
@@ -128,70 +91,84 @@
         <div class="row">
             <!-- Content (Sidebar) - Col 3 -->
             <aside class="col-lg-3 col-md-4 content-section">
-                <h3 class="mb-4">Website Links</h3>
+                <h4 class="mb-4 fw-bold">Quick Links</h4>
                 <div class="external-links">
                     <a href="https://nfacademy.id" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> NF Academy
+                        <i class="bi bi-mortarboard-fill"></i> NF Academy
                     </a>
                     <a href="https://nurulfikri.ac.id" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> Nurul Fikri
+                        <i class="bi bi-building"></i> Nurul Fikri
                     </a>
                     <a href="https://www.bootstrap.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> Bootstrap
+                        <i class="bi bi-bootstrap-fill"></i> Bootstrap
                     </a>
                     <a href="https://www.w3schools.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> W3Schools
+                        <i class="bi bi-code-square"></i> W3Schools
                     </a>
                     <a href="https://developer.mozilla.org" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> MDN Web Docs
+                        <i class="bi bi-browser-chrome"></i> MDN Web Docs
                     </a>
                     <a href="https://github.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> GitHub
+                        <i class="bi bi-github"></i> GitHub
                     </a>
+                </div>
+
+                <div class="card mt-4 bg-primary text-white p-4">
+                    <h5>Butuh Bantuan?</h5>
+                    <p class="small">Hubungi tim support kami untuk informasi lebih lanjut.</p>
+                    <button class="btn btn-light btn-sm w-100">Kontak Kami</button>
                 </div>
             </aside>
 
             <!-- Main Content - Col 9 -->
             <main class="col-lg-9 col-md-8 main-content-section" id="mainContent">
-                <h1 class="mb-4">Selamat Datang</h1>
-                <p class="lead">Ini adalah halaman utama dari tugas RWD Bootstrap.</p>
+                <div class="mb-5">
+                    <h1 class="display-5 fw-bold mb-3">Selamat Datang di <span class="text-primary">RWD Master</span></h1>
+                    <p class="lead text-muted">Solusi terdepan untuk belajar desain web responsif dengan standar industri.</p>
+                </div>
                 
-                <div class="row mt-4">
-                    <div class="col-md-6 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="bi bi-info-circle"></i> Tentang Website</h5>
-                                <p class="card-text">Website ini dibuat menggunakan Bootstrap 5 dengan layout responsif yang dapat menyesuaikan berbagai ukuran layar.</p>
+                <div class="row g-4 mt-2">
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="mb-3 text-primary">
+                                    <i class="bi bi-lightning-charge-fill fs-1"></i>
+                                </div>
+                                <h4 class="fw-bold">Tentang Project</h4>
+                                <p class="text-muted">Website ini dikembangkan sebagai demonstrasi implementasi Responsive Web Design (RWD) menggunakan framework Bootstrap 5. Setiap elemen dirancang untuk memberikan pengalaman pengguna yang optimal di berbagai ukuran layar.</p>
+                                <a href="#" class="btn btn-outline-primary btn-sm">Pelajari Selengkapnya</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="bi bi-grid-3x3"></i> Fitur</h5>
-                                <ul>
-                                    <li>Responsive Web Design</li>
-                                    <li>Bootstrap 5 Framework</li>
-                                    <li>Navigation Menu</li>
-                                    <li>Image Carousel</li>
-                                    <li>External Links</li>
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="mb-3 text-primary">
+                                    <i class="bi bi-gem fs-1"></i>
+                                </div>
+                                <h4 class="fw-bold">Fitur Utama</h4>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i> Grid System Terpadu</li>
+                                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i> Komponen UI Modern</li>
+                                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i> Animasi Interaktif</li>
+                                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i> Optimasi Kecepatan</li>
+                                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i> SEO Friendly</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="alert alert-info mt-4" role="alert">
-                    <h4 class="alert-heading"><i class="bi bi-lightbulb"></i> Navigasi</h4>
-                    <p>Gunakan menu navigasi di atas untuk mengakses halaman-halaman berikut:</p>
-                    <hr>
-                    <ul class="mb-0">
-                        <li><strong>Home:</strong> Profile personal</li>
-                        <li><strong>MyStudy:</strong> Riwayat pendidikan</li>
-                        <li><strong>Gallery:</strong> Kumpulan gambar</li>
-                        <li><strong>Datatable:</strong> Tabel data interaktif</li>
-                        <li><strong>Login:</strong> Form login</li>
-                    </ul>
+                <div class="mt-5 p-5 bg-light rounded-4 border border-primary border-opacity-25">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h3 class="fw-bold mb-2">Siap untuk Memulai Perjalanan Anda?</h3>
+                            <p class="mb-md-0 text-muted">Jelajahi berbagai halaman kami untuk melihat fitur lengkapnya.</p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <a href="home.html" class="btn btn-primary px-4 py-2">Mulai Sekarang <i class="bi bi-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
@@ -200,17 +177,32 @@
     <!-- Footer -->
     <footer class="footer-section">
         <div class="container">
-            <h5>Tentang Pembuat</h5>
-            <p>Tugas RWD Bootstrap - Desain Web</p>
-            <p>Pertemuan 6 - Studi Independen</p>
-            <div class="social-icons mt-3">
-                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
-                <a href="https://twitter.com" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
-                <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                <a href="https://github.com" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+            <div class="row mb-4">
+                <div class="col-md-4 text-md-start mb-4 mb-md-0">
+                    <h4 class="fw-bold mb-3 text-white">RWD<span class="text-primary">Master</span></h4>
+                    <p class="small opacity-75">Platform pembelajaran desain web responsif terbaik untuk mahasiswa dan profesional.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Navigasi</h5>
+                    <ul class="list-unstyled small opacity-75">
+                        <li><a href="home.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="study.html" class="text-white text-decoration-none">MyStudy</a></li>
+                        <li><a href="gallery.html" class="text-white text-decoration-none">Gallery</a></li>
+                        <li><a href="datatables.html" class="text-white text-decoration-none">Datatable</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <h5 class="fw-bold mb-3">Ikuti Kami</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
             </div>
-            <p class="mt-3 mb-0">&copy; 2026 RWD Bootstrap Project</p>
+            <hr class="opacity-25">
+            <p class="small mb-0 opacity-50">&copy; 2026 RWD Master Project. All rights reserved.</p>
         </div>
     </footer>
 

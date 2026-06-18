@@ -3,107 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyStudy - Riwayat Pendidikan</title>
+    <title>MyStudy - Education Journey</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
-        .header-section {
-            background-color: #f8f9fa;
-            padding: 20px 0;
-        }
-        .nav-section {
-            background-color: #343a40;
-        }
-        .content-section {
-            min-height: 400px;
-            padding: 20px;
-            background-color: #e9ecef;
-        }
-        .main-content-section {
-            min-height: 400px;
-            padding: 20px;
-        }
-        .footer-section {
-            background-color: #343a40;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        .logo {
-            width: 50px;
-            height: 50px;
-        }
-        .social-icons a {
-            color: white;
-            font-size: 24px;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .social-icons a:hover {
-            color: #007bff;
-        }
-        .external-link {
-            display: block;
-            padding: 10px;
-            margin: 5px 0;
-            background-color: #fff;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.3s;
-        }
-        .external-link:hover {
-            background-color: #007bff;
-            color: white;
-            transform: translateX(5px);
-        }
-        .table-education {
-            background-color: white;
-        }
-        .education-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header Section -->
     <header class="header-section">
-        <div class="container">
-            <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://via.placeholder.com/1200x300/007bff/ffffff?text=Welcome+to+My+Website" class="d-block w-100" alt="Banner 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://via.placeholder.com/1200x300/28a745/ffffff?text=Bootstrap+RWD+Project" class="d-block w-100" alt="Banner 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://via.placeholder.com/1200x300/ffc107/ffffff?text=Responsive+Design" class="d-block w-100" alt="Banner 3">
+        <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1523050853063-bd80e29247f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Study Banner">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2 class="display-4 fw-bold">Education Journey</h2>
+                        <p>Riwayat akademik dan pencapaian profesional</p>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#headerCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
             </div>
         </div>
     </header>
 
     <!-- Navigation Menu -->
-    <nav class="navbar navbar-expand-lg navbar-dark nav-section">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="https://via.placeholder.com/50/ffffff/007bff?text=NF" alt="Logo" class="logo">
+    <nav class="navbar navbar-expand-lg navbar-dark nav-section sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-rocket-takeoff-fill fs-2 me-2 text-primary"></i>
+                <span class="fs-4">RWD<span class="text-primary">Master</span></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -123,7 +54,7 @@
                         <a class="nav-link" href="datatables.html"><i class="bi bi-table"></i> Datatable</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                        <a class="nav-link btn btn-primary text-white ms-lg-3 px-4" href="login.html">Login</a>
                     </li>
                 </ul>
             </div>
@@ -135,90 +66,80 @@
         <div class="row">
             <!-- Content (Sidebar) - Col 3 -->
             <aside class="col-lg-3 col-md-4 content-section">
-                <h3 class="mb-4">Website Links</h3>
+                <h4 class="mb-4 fw-bold">Quick Links</h4>
                 <div class="external-links">
                     <a href="https://nfacademy.id" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> NF Academy
+                        <i class="bi bi-mortarboard-fill"></i> NF Academy
                     </a>
                     <a href="https://nurulfikri.ac.id" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> Nurul Fikri
+                        <i class="bi bi-building"></i> Nurul Fikri
                     </a>
                     <a href="https://www.bootstrap.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> Bootstrap
-                    </a>
-                    <a href="https://www.w3schools.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> W3Schools
-                    </a>
-                    <a href="https://developer.mozilla.org" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> MDN Web Docs
+                        <i class="bi bi-bootstrap-fill"></i> Bootstrap
                     </a>
                     <a href="https://github.com" target="_blank" class="external-link">
-                        <i class="bi bi-link-45deg"></i> GitHub
+                        <i class="bi bi-github"></i> GitHub
                     </a>
                 </div>
             </aside>
 
             <!-- Main Content - Col 9 -->
             <main class="col-lg-9 col-md-8 main-content-section" id="mainContent">
-                <h1 class="mb-4"><i class="bi bi-mortarboard-fill"></i> Riwayat Pendidikan</h1>
-                
-                <div class="card mb-4">
-                    <div class="card-header education-header">
-                        <h4 class="mb-0"><i class="bi bi-book"></i> Daftar Riwayat Pendidikan</h4>
-                    </div>
-                    <div class="card-body">
+                <div class="mb-5">
+                    <h2 class="fw-bold mb-3 d-flex align-items-center">
+                        <i class="bi bi-mortarboard-fill text-primary me-3"></i> Riwayat Pendidikan
+                    </h2>
+                    <p class="text-muted">Perjalanan akademik dari sekolah dasar hingga pendidikan tinggi.</p>
+                </div>
+
+                <div class="card border-0 shadow-sm mb-5">
+                    <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover table-bordered">
-                                <thead class="table-primary">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="bg-light">
                                     <tr>
-                                        <th width="5%" class="text-center">No</th>
-                                        <th width="20%">Jenjang</th>
-                                        <th width="30%">Nama Institusi</th>
-                                        <th width="15%">Tahun Masuk</th>
-                                        <th width="15%">Tahun Lulus</th>
-                                        <th width="15%">Nilai Akhir</th>
+                                        <th class="px-4 py-3" width="5%">No</th>
+                                        <th class="py-3" width="15%">Jenjang</th>
+                                        <th class="py-3" width="40%">Institusi</th>
+                                        <th class="py-3" width="20%">Periode</th>
+                                        <th class="py-3 text-center" width="20%">Status/Nilai</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td><i class="bi bi-building"></i> SD</td>
-                                        <td>SDN Contoh 01</td>
-                                        <td>2006</td>
-                                        <td>2012</td>
-                                        <td><span class="badge bg-success">85.5</span></td>
+                                        <td class="px-4">1</td>
+                                        <td><span class="badge bg-secondary opacity-75">SD</span></td>
+                                        <td class="fw-medium">SDN Contoh 01 Jakarta</td>
+                                        <td>2006 - 2012</td>
+                                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success px-3">Lulus</span></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">2</td>
-                                        <td><i class="bi bi-building"></i> SMP</td>
-                                        <td>SMPN Contoh 02</td>
-                                        <td>2012</td>
-                                        <td>2015</td>
-                                        <td><span class="badge bg-success">87.2</span></td>
+                                        <td class="px-4">2</td>
+                                        <td><span class="badge bg-secondary opacity-75">SMP</span></td>
+                                        <td class="fw-medium">SMPN Contoh 02 Jakarta</td>
+                                        <td>2012 - 2015</td>
+                                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success px-3">Lulus</span></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">3</td>
-                                        <td><i class="bi bi-building"></i> SMA</td>
-                                        <td>SMAN Contoh 03</td>
-                                        <td>2015</td>
-                                        <td>2018</td>
-                                        <td><span class="badge bg-success">88.7</span></td>
+                                        <td class="px-4">3</td>
+                                        <td><span class="badge bg-secondary opacity-75">SMA</span></td>
+                                        <td class="fw-medium">SMAN Contoh 03 Jakarta (IPA)</td>
+                                        <td>2015 - 2018</td>
+                                        <td class="text-center"><span class="badge bg-success-subtle text-success border border-success px-3">Lulus</span></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">4</td>
-                                        <td><i class="bi bi-mortarboard"></i> S1</td>
-                                        <td>Universitas Contoh - Teknik Informatika</td>
-                                        <td>2018</td>
-                                        <td>2022</td>
-                                        <td><span class="badge bg-success">3.75</span></td>
+                                        <td class="px-4">4</td>
+                                        <td><span class="badge bg-primary">S1</span></td>
+                                        <td class="fw-medium">UPN Veteran Jawa Timur - Teknik Informatika</td>
+                                        <td>2018 - 2022</td>
+                                        <td class="text-center"><span class="fw-bold text-primary">IPK 3.85</span></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">5</td>
-                                        <td><i class="bi bi-award"></i> Sertifikasi</td>
-                                        <td>Web Development Bootcamp</td>
-                                        <td>2023</td>
-                                        <td>2023</td>
-                                        <td><span class="badge bg-primary">Lulus</span></td>
+                                        <td class="px-4">5</td>
+                                        <td><span class="badge bg-info text-dark">Kursus</span></td>
+                                        <td class="fw-medium">Studi Independen - Modern Web Development</td>
+                                        <td>2023 - 2024</td>
+                                        <td class="text-center"><span class="badge bg-warning-subtle text-warning-emphasis border border-warning px-3">Sedang Jalan</span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -226,77 +147,104 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100">
-                            <div class="card-header bg-info text-white">
-                                <h5 class="mb-0"><i class="bi bi-trophy"></i> Prestasi</h5>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-header bg-white border-0 pt-4 px-4">
+                                <h5 class="fw-bold mb-0 d-flex align-items-center">
+                                    <i class="bi bi-trophy-fill text-warning me-2"></i> Prestasi Akademik
+                                </h5>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body p-4">
+                                <div class="d-flex gap-3 mb-4">
+                                    <div class="bg-warning bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Juara 1 Web Design</h6>
+                                        <p class="small text-muted mb-0">Tingkat Nasional - Competition 2022</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-3 mb-4">
+                                    <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <i class="bi bi-award-fill text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Mahasiswa Berprestasi</h6>
+                                        <p class="small text-muted mb-0">Fakultas Ilmu Komputer - 2021</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-3">
+                                    <div class="bg-success bg-opacity-10 p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <i class="bi bi-check-all text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Beasiswa Unggulan</h6>
+                                        <p class="small text-muted mb-0">Penerima Beasiswa Prestasi - 2019-2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-header bg-white border-0 pt-4 px-4">
+                                <h5 class="fw-bold mb-0 d-flex align-items-center">
+                                    <i class="bi bi-patch-check-fill text-primary me-2"></i> Sertifikasi
+                                </h5>
+                            </div>
+                            <div class="card-body p-4">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <i class="bi bi-award text-warning"></i> Juara 1 Olimpiade Web Design 2022
+                                    <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3">
+                                        <div>
+                                            <h6 class="fw-bold mb-1">AWS Certified Cloud Practitioner</h6>
+                                            <small class="text-muted">Amazon Web Services - 2023</small>
+                                        </div>
+                                        <i class="bi bi-check-circle-fill text-primary"></i>
                                     </li>
-                                    <li class="list-group-item">
-                                        <i class="bi bi-award text-warning"></i> Best Student Award 2021
+                                    <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3">
+                                        <div>
+                                            <h6 class="fw-bold mb-1">Google Data Analytics</h6>
+                                            <small class="text-muted">Coursera - 2022</small>
+                                        </div>
+                                        <i class="bi bi-check-circle-fill text-primary"></i>
                                     </li>
-                                    <li class="list-group-item">
-                                        <i class="bi bi-award text-warning"></i> Finalist Hackathon National 2020
-                                    </li>
-                                    <li class="list-group-item">
-                                        <i class="bi bi-award text-warning"></i> Dean's List Achiever 2019-2022
+                                    <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3">
+                                        <div>
+                                            <h6 class="fw-bold mb-1">Advanced React Developer</h6>
+                                            <small class="text-muted">Meta Professional - 2023</small>
+                                        </div>
+                                        <i class="bi bi-check-circle-fill text-primary"></i>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100">
-                            <div class="card-header bg-success text-white">
-                                <h5 class="mb-0"><i class="bi bi-clipboard-check"></i> Sertifikat</h5>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <i class="bi bi-patch-check text-success"></i> Bootstrap 5 Certificate
-                                    </li>
-                                    <li class="list-group-item">
-                                        <i class="bi bi-patch-check text-success"></i> JavaScript ES6 Advanced
-                                    </li>
-                                    <li class="list-group-item">
-                                        <i class="bi bi-patch-check text-success"></i> Responsive Web Design
-                                    </li>
-                                    <li class="list-group-item">
-                                        <i class="bi bi-patch-check text-success"></i> PHP & MySQL Development
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="alert alert-primary" role="alert">
-                    <h5 class="alert-heading"><i class="bi bi-info-circle"></i> Catatan</h5>
-                    <p>Riwayat pendidikan di atas menunjukkan perjalanan akademik dari tingkat dasar hingga perguruan tinggi. Setiap jenjang pendidikan memberikan kontribusi penting dalam pembentukan karakter dan kompetensi.</p>
                 </div>
             </main>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer-section mt-5">
+    <footer class="footer-section">
         <div class="container">
-            <h5>Tentang Pembuat</h5>
-            <p>Tugas RWD Bootstrap - Desain Web</p>
-            <p>Pertemuan 6 - Studi Independen</p>
-            <div class="social-icons mt-3">
-                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
-                <a href="https://twitter.com" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
-                <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                <a href="https://github.com" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+            <div class="row mb-4">
+                <div class="col-md-4 text-md-start mb-4 mb-md-0">
+                    <h4 class="fw-bold mb-3 text-white">RWD<span class="text-primary">Master</span></h4>
+                    <p class="small opacity-75">Platform pembelajaran desain web responsif terbaik untuk mahasiswa dan profesional.</p>
+                </div>
+                <div class="col-md-4 text-md-end offset-md-4">
+                    <h5 class="fw-bold mb-3">Ikuti Kami</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
             </div>
-            <p class="mt-3 mb-0">&copy; 2026 RWD Bootstrap Project</p>
+            <hr class="opacity-25">
+            <p class="small mb-0 opacity-50">&copy; 2026 RWD Master Project. All rights reserved.</p>
         </div>
     </footer>
 
